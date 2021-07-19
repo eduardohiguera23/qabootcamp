@@ -1,0 +1,22 @@
+{
+  "name": "qabootcamp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "testcafe chrome ./tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardohiguera23/qabootcamp.git"
+  },
+  "author": "ehiguera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eduardohiguera23/qabootcamp/issues"
+  },
+  "homepage": "https://github.com/eduardohiguera23/qabootcamp#readme",
+  "dependencies": {
+    "testcafe": "^1.15.0"
+  }
+}
