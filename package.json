@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome ./tests"
+    "test": "testcafe chrome ./pom/tests"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/eduardohiguera23/qabootcamp#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "testcafe": "^1.15.0"
   }
 }
