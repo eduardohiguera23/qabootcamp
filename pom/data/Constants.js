@@ -27,6 +27,9 @@ export const MESSAGES ={
     }
 }
 export const TASK ={
-    TODAY_TASK:'this one is for 1',
-    TOMORROW_TASK:'this one is for tomorrow'
+    TODAY_TASK:'test',
+    TOMORROW_TASK:'tomorrow add new task',
+    TOMORROW_TASK_VALIDATION:'add new task'
+    
+
 }

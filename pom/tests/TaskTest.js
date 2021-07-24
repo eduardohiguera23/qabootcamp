@@ -1,6 +1,7 @@
 import {USER} from '../data/Roles'
 import {TASK,URLS} from '../data/Constants'
 import homePage from '../pages/HomePage'
+import CommonPage from '../pages/CommonPage'
 
 fixture('task features')
     .page `${URLS.LOGIN_URL}`
@@ -14,7 +15,7 @@ fixture('task features')
 test('as a user, i should be able to add a new task with today as the due date', async t => {
     
     //await t.useRole(USER)
-    await homePage.createNewTodayTask(TASK.TODAY_TASK)
+    await homePage.createNewTask(TASK.TODAY_TASK)
     await t.expect(homePage.taskContentField2.innerText).contains(TASK.TODAY_TASK)
     await t.wait(5000)
 })
@@ -22,9 +23,9 @@ test('as a user, i should be able to add a new task with today as the due date',
 test.only('as a user, i should be able to add a new task with tomorrow as the due date', async t => {
    
     await t.useRole(USER)
-    homePage.createNewTomorrowTask(TASK.TOMORROW_TASK)
+    homePage.createNewTask(TASK.TOMORROW_TASK)
     await t.wait(5000)
-    homePage.NavigateToTomorrow()
-    await t.expect(homePage.taskContentField2.innerText).contains(TASK.TOMORROW_TASK)
+    CommonPage.NavigateToTomorrow()
+    await t.expect(homePage.taskContentField2.innerText).contains(TASK.TOMORROW_TASK_VALIDATION)
 })
 
