@@ -9,9 +9,12 @@ fixture('task features')
     .beforeEach( async t => {
         await t.useRole(USER)
     })
+    .afterEach( async t => {
+        await homePage.DeleteTasks()
+    })
    
 
-test('as a user, i should be able to add a new task with today as the due date', async t => {
+test.only('as a user, i should be able to add a new task with today as the due date', async t => {
     
     
     await homePage.createNewTask(TASK.TODAY_TASK)
@@ -24,8 +27,8 @@ test('as a user, i should be able to add a new task with tomorrow as the due dat
     
     homePage.createNewTask(TASK.TOMORROW_TASK)
     //await t.wait(5000)
-    CommonPage.NavigateToTomorrow()
-    await t.expect(homePage.taskContentField2.innerText).contains(TASK.TOMORROW_TASK_VALIDATION)
+    //CommonPage.NavigateToTomorrow()
+    //await t.expect(homePage.taskContentField2.innerText).contains(TASK.TOMORROW_TASK_VALIDATION)
 })
 
 test('move to upcoming', async t => {
@@ -36,10 +39,18 @@ test('move to upcoming', async t => {
     
 })
 
-test.only('create 10 tasks', async t => {
+test('create 10 tasks', async t => {
     
     
     await homePage.tenTasks()
     //await t.expect(homePage.taskContentField2.innerText).contains(TASK.TODAY_TASK)
     
 })
+
+
+//test.only('delete task', async t => {
+    
+    
+  //  await homePage.DeleteTasks()
+  //  await t.expect(homePage.doneCheckbox.visible).notOk();
+//})

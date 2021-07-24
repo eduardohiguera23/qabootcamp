@@ -1,5 +1,6 @@
 import { Selector, t } from "testcafe"
 import {TASK} from '../data/Constants'
+import CommonPage from "./CommonPage"
 
 class HomePage{
     constructor(){
@@ -14,17 +15,16 @@ class HomePage{
         this.calendarIcon = Selector('.item_due_selector')
         //this.tomorrowButton = Selector('button').withText("Tomorrow")
         //this.tomorrowButton = Selector('.scheduler-suggestions-item-label').withExactText("Tomorrow")
-        this.tomorrowButton = Selector('button.scheduler-suggestions-item-icon--tomorrow')
-        this.tomorrowLink = Selector('a').withText('Tomorrow')
-
+        
+        this.doneCheckbox = Selector('.task_checkbox__circle')
 
         
     }
 
 async createNewTask (content){
-    await t
-        //.click(this.addTaskButton)
-        .click(this.quickAddButton)
+    //if (await this.addTaskButton.exists && await this.addTaskButton.visible) {
+        await t.click(this.addTaskButton)
+    //}
     await t.typeText(this.contentField1, content,{paste:true})
     await t.click(this.submitTaskButton)
     await t.wait(5000)
@@ -43,8 +43,8 @@ async createNewTomorrowTask (content){
 }
 async NavigateToTomorrow (){
     await t
-        .click(this.upcomingButton)
-        .click(this.tomorrowLink)
+        .click(CommonPage.upcomingButton)
+        .click(CommonPage.tomorrowLink)
 } 
 
 async tenTasks (){
@@ -54,6 +54,13 @@ async tenTasks (){
     }
 } 
 
+async DeleteTasks (){
+   // if (this.doneCheckbox.visible) {
+       CommonPage.NavigateToInbox()
+        await t.click(this.doneCheckbox)
+        await t.wait(5000)
+   // }
+} 
 
 }
 export default new HomePage
