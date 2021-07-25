@@ -22,9 +22,9 @@ class HomePage{
     }
 
 async createNewTask (content){
-    //if (await this.addTaskButton.exists && await this.addTaskButton.visible) {
+    if (await this.addTaskButton.exists) {
         await t.click(this.addTaskButton)
-    //}
+    }
     await t.typeText(this.contentField1, content,{paste:true})
     await t.click(this.submitTaskButton)
     await t.wait(5000)
@@ -49,17 +49,19 @@ async NavigateToTomorrow (){
 
 async tenTasks (){
     for (let index = 1; index < 11; index++) {
-        this.createNewTask(TASK.TODAY_TASK+index)
+        await t.this.createNewTask(TASK.TODAY_TASK+index)
         
     }
 } 
 
 async DeleteTasks (){
-   // if (this.doneCheckbox.visible) {
+
        CommonPage.NavigateToInbox()
+       while (await this.doneCheckbox.exists) {
         await t.click(this.doneCheckbox)
-        await t.wait(5000)
-   // }
+        await t.wait(2000)
+       }
+       
 } 
 
 }
