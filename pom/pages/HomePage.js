@@ -36,6 +36,7 @@ async createNewTask (content){
     await t.typeText(this.contentField1, content,{paste:true})
     await t.click(this.submitTaskButton)
     await t.wait(5000)
+   
 } 
 
 async createNewTomorrowTask (content){
@@ -48,6 +49,7 @@ async createNewTomorrowTask (content){
        // await t.wait(5000)
         await t.click(this.submitTaskButton)
         await t.wait(5000)
+        
 }
 
 
