@@ -13,7 +13,7 @@
     "logintestsheadless2browsers": "testcafe chrome:headless,firefox:headless ./pom/tests --fixture-meta feature=login",
     
     "smoke-testjenkins": "testcafe chrome:headless ./pom/tests --test-meta type=smoke",
-    "alltestsjenkins": "testcafe chrome:headless ./pom/tests --reporter allure"
+    "alltestsjenkins": "testcafe chrome:headless ./pom/tests"
   },
   "repository": {
     "type": "git",
