@@ -49,7 +49,8 @@ async NavigateToTomorrow (){
 
 async tenTasks (){
     for (let index = 1; index < 11; index++) {
-        await t.this.createNewTask(TASK.TODAY_TASK+index)
+       // await t.this.createNewTask(TASK.TODAY_TASK+index)
+        this.createNewTask('hola')
         
     }
 } 

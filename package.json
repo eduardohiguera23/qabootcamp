@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome ./pom/tests",
+    "test": "testcafe chrome ./pom/tests --reporter allure",
     "smoke-test": "testcafe chrome ./pom/tests/LoginTest.js --test-meta type=smoke",
     "smoketest": "testcafe chrome ./pom/tests --test-meta type=smoke",
     "smoketest2": "testcafe chrome:headless,firefox:headless ./pom/tests --fixture-meta feature=login",
@@ -13,7 +13,6 @@
     "task-test": "testcafe chrome:headless ./pom/tests --fixture-meta fixture=task",
     "project-test": "testcafe chrome:headless ./pom/tests --fixture-meta fixture=project",
     "alltests": "testcafe chrome:headless ./pom/tests"
-
   },
   "repository": {
     "type": "git",
@@ -27,6 +26,7 @@
   "homepage": "https://github.com/eduardohiguera23/qabootcamp#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "testcafe": "^1.15.0"
+    "testcafe": "^1.15.0",
+    "testcafe-reporter-allure": "^1.0.5"
   }
 }
