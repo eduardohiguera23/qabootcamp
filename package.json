@@ -5,13 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "testcafe chrome ./pom/tests",
-    
     "login-test": "testcafe chrome ./pom/tests --fixture-meta feature=login --reporter allure",
     "task-test": "testcafe chrome:headless ./pom/tests --fixture-meta fixture=task --reporter allure",
     "project-test": "testcafe chrome:headless ./pom/tests --fixture-meta fixture=project --reporter allure",
     "smoke-test": "testcafe chrome ./pom/tests/ --test-meta type=smoke --reporter allure",
     "logintestsheadless2browsers": "testcafe chrome:headless,firefox:headless ./pom/tests --fixture-meta feature=login",
-    
     "smoke-testjenkins": "testcafe chrome:headless ./pom/tests --test-meta type=smoke",
     "alltestsjenkins": "testcafe chrome:headless ./pom/tests"
   },
@@ -29,5 +27,9 @@
     "dotenv": "^10.0.0",
     "testcafe": "^1.15.0",
     "testcafe-reporter-allure": "^1.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.31.0",
+    "eslint-plugin-testcafe": "^0.2.1"
   }
 }
