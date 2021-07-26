@@ -30,10 +30,10 @@ test.meta('type', 'smoke')('as a user, i should be able to add a new task with t
 
 
 
-test('create 10 tasks', async t => {
+//test('create 10 tasks', async t => {
     
-    await homePage.tenTasks(TASK.TODAY_TASK)
+ //   await homePage.tenTasks(TASK.TODAY_TASK)
     
-})
+//})
 
 
