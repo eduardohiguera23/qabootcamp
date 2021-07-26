@@ -18,3 +18,5 @@ run smoke testing:
 npm run smoke-test
 ```
 
+to generate a report on allure, execute `allure generate allure/allure-results --clean -o allure/allure-report && allure open allure/allure-report` after each script
+
