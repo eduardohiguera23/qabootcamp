@@ -21,7 +21,7 @@ test.meta('type', 'smoke')('as a user, i should be able to add a new task with t
  
 })
 
-test.only('as a user, i should be able to add a new task with tomorrow as the due date', async t => {
+test.meta('type', 'smoke')('as a user, i should be able to add a new task with tomorrow as the due date', async t => {
    
     await homePage.createNewTask(TASK.TOMORROW_TASK)
     await CommonPage.NavigateToTomorrow()
@@ -30,9 +30,9 @@ test.only('as a user, i should be able to add a new task with tomorrow as the du
 
 
 
-test('create 10 tasks', async t => {
+test.only('create 10 tasks', async t => {
     
-    await homePage.tenTasks()
+    await homePage.tenTasks(TASK.TODAY_TASK)
     
 })
 

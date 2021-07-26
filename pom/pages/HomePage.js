@@ -22,6 +22,7 @@ class HomePage{
     }
 
 async createNewTask (content){
+    await t.wait(2000)
     if (await this.addTaskButton.exists) {
         await t.click(this.addTaskButton)
     }
@@ -41,16 +42,12 @@ async createNewTomorrowTask (content){
         await t.click(this.submitTaskButton)
         await t.wait(5000)
 }
-async NavigateToTomorrow (){
-    await t
-        .click(CommonPage.upcomingButton)
-        .click(CommonPage.tomorrowLink)
-} 
 
-async tenTasks (){
+
+async tenTasks(variable1){
     for (let index = 1; index < 11; index++) {
        // await t.this.createNewTask(TASK.TODAY_TASK+index)
-        this.createNewTask('hola')
+        this.createNewTask(variable1)
         
     }
 } 
