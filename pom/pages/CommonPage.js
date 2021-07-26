@@ -7,6 +7,8 @@ class CommonPage{
         this.InboxLink = Selector('.item_content').withText('Inbox')
         //this.tomorrowLink = Selector('a').withText('Tomorrow')
         this.tomorrowLink = Selector('a').withText('Tomorrow')
+        this.newProjectButton = Selector('.adder_icon')
+        this.ProjectName = Selector('.text')
     }
 
     async NavigateToTomorrow (){
@@ -19,6 +21,14 @@ class CommonPage{
 
     async NavigateToInbox (){
         await t.click(this.InboxLink)
+            
+    } 
+
+    async NavigateToNewProject (){
+        await t.wait(2000)
+            .hover(this.newProjectButton)
+        await t.wait(5000)
+         await t.click(this.newProjectButton)
             
     } 
 }

@@ -10,14 +10,14 @@ fixture('login feature')
 //solo un fixture por test
 // piensen en el fixture como un modulo y los tests como un flujo completo
 
-test.meta('type', 'smoke')('as a user, i should be able to login successfully with the valid credentials', async t => {
+test.meta('type','smoke')('as a user, i should be able to login successfully with the valid credentials', async t => {
     await t.useRole(USER)
     //await t.expect(homePage.userAvatar.exists).ok()
     await t.expect(homePage.searchBar.exists).ok()//,{ timeout: 20000 }
     //await t.wait(2000)
 })
 
-test.meta('type', 'smoke')('as a user, i should not be able to login successfully with  a blank password', async t => {
+test.meta('type','smoke')('as a user, i should not be able to login successfully with  a blank password', async t => {
     await loginPage.submittLoginForm(CREDENTIALS.VALID_USER.EMAIL,null)
     await t.expect(loginPage.ErrorMessage.innerText).contains(MESSAGES.ERROR.LOGIN.BLANK_PASSWORD)
 })

@@ -18,6 +18,13 @@ class HomePage{
         
         this.doneCheckbox = Selector('.task_checkbox__circle')
 
+        this.addToFavoritesSwitch = Selector('.reactist_switch--handle')
+        this.colorDropdown = Selector('.color_dropdown_toggle.form_field_control')
+        this.selectColor = Selector('.color_dropdown_select__name')
+        this.NewProjectNameField = Selector('#edit_project_modal_field_name')
+        this.SubmitNewProjectButton = Selector('.ist_button.ist_button_red')
+        
+
         
     }
 
@@ -61,6 +68,21 @@ async DeleteTasks (){
        }
        
 } 
+
+async CreateNewProject (content,color){
+
+    await CommonPage.NavigateToNewProject()
+    await t.typeText(this.NewProjectNameField, content,{paste:true})
+            .click(this.addToFavoritesSwitch)
+            .click(this.colorDropdown)
+    await t.wait(2000)
+    await t.click(this.selectColor.withText(color))        
+    await t.wait(5000)
+    await t.click(this.SubmitNewProjectButton)
+    await t.wait(5000)
+    
+} 
+
 
 }
 export default new HomePage

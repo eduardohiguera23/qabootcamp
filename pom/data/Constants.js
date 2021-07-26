@@ -1,8 +1,7 @@
 import dotenv from 'dotenv'
 dotenv.config()
 export const URLS ={
-    LOGIN_URL:'https://todoist.com/users/showlogin',
-    //HOME_URL:'https://todoist.com/app/today'
+    LOGIN_URL:'https://todoist.com/users/showlogin'
 }
 export const CREDENTIALS ={
     VALID_USER:{
@@ -30,6 +29,8 @@ export const TASK ={
     TODAY_TASK:'test',
     TOMORROW_TASK:'tomorrow add new task',
     TOMORROW_TASK_VALIDATION:'add new task'
-    
-
+}
+export const NEWPROJECT ={
+    NAME:'new project test',
+    COLOR:'Green'
 }
