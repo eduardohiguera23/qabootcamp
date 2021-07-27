@@ -1,7 +1,13 @@
 # qabootcamp
 proyect for todoist
 
-SCRIPTS
+##Instalation
+
+Clone the project : `git clone https://github.com/eduardohiguera23/qabootcamp.git`
+
+Run `npm install`
+
+##SCRIPTS
 
 run each fixture separately:
 ```
