@@ -9,7 +9,6 @@ class HomePage{
         this.quickAddButton = Selector('#quick_add_task_holder')
         this.addTaskButton = Selector('.plus_add_button')
         this.contentField1 = Selector('.public-DraftStyleDefault-block.public-DraftStyleDefault-ltr')
-        //this.submitTaskButton = Selector('button').withText("Add task")
         this.submitTaskButton = Selector('.reactist_button.reactist_button--primary')
         this.taskContentField2 = Selector('.task_content')
         this.calendarIcon = Selector('.item_due_selector')
