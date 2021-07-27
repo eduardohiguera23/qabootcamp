@@ -30,10 +30,11 @@ test.meta('type', 'smoke')('as a user, i should be able to add a new task with t
 
 
 
-//test('create 10 tasks', async t => {
+test.only('as a user, i should be able to create 10 task with today as the due date', async t => {
     
- //   await homePage.tenTasks(TASK.TODAY_TASK)
+    await homePage.nTasks(TASK.TODAY_TASK,TASK.SIZE)
+    await t.expect(homePage.countTasks()).eql(TASk.SIZE)
     
-//})
+})
 
 

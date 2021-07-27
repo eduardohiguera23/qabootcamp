@@ -7,7 +7,7 @@ Clone the project : `git clone https://github.com/eduardohiguera23/qabootcamp.gi
 
 Run `npm install`
 
-##SCRIPTS
+##scripts
 
 run each fixture separately:
 ```

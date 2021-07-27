@@ -1,4 +1,4 @@
-//import { Selector, t} from "testcafe"
+
 import {URLS, CREDENTIALS,MESSAGES} from '../data/Constants'
 import loginPage from '../pages/LoginPage'
 import homePage from '../pages/HomePage'
@@ -7,14 +7,12 @@ import {USER} from '../data/Roles'
 fixture('login feature')
     .page `${URLS.LOGIN_URL}`
     .meta('feature','login')
-//solo un fixture por test
-// piensen en el fixture como un modulo y los tests como un flujo completo
+
 
 test.meta('type','smoke')('as a user, i should be able to login successfully with the valid credentials', async t => {
     await t.useRole(USER)
-    //await t.expect(homePage.userAvatar.exists).ok()
-    await t.expect(homePage.searchBar.exists).ok()//,{ timeout: 20000 }
-    //await t.wait(2000)
+    await t.expect(homePage.searchBar.exists).ok()
+    
 })
 
 test.meta('type','smoke')('as a user, i should not be able to login successfully with  a blank password', async t => {

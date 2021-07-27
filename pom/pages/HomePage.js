@@ -13,21 +13,25 @@ class HomePage{
         this.submitTaskButton = Selector('.reactist_button.reactist_button--primary')
         this.taskContentField2 = Selector('.task_content')
         this.calendarIcon = Selector('.item_due_selector')
-        //this.tomorrowButton = Selector('button').withText("Tomorrow")
-        //this.tomorrowButton = Selector('.scheduler-suggestions-item-label').withExactText("Tomorrow")
-        
         this.doneCheckbox = Selector('.task_checkbox__circle')
-
         this.addToFavoritesSwitch = Selector('.reactist_switch--handle')
         this.colorDropdown = Selector('.color_dropdown_toggle.form_field_control')
         this.selectColor = Selector('.color_dropdown_select__name')
         this.NewProjectNameField = Selector('#edit_project_modal_field_name')
         this.SubmitNewProjectButton = Selector('.ist_button.ist_button_red')
-        
+        this.cancelButton = Selector('.reactist_button.reactist_button--secondary')
 
         
     }
-
+async createNewTask2 (content){
+    await t.wait(2000)
+    .click(this.quickAddButton)
+    await t.typeText(this.contentField1, content,{paste:true})
+    await t.click(this.submitTaskButton)
+    await t.click(this.cancelButton)
+    await t.wait(1000)
+       
+} 
 async createNewTask (content){
     await t.wait(2000)
     if (await this.addTaskButton.exists) {
@@ -36,30 +40,23 @@ async createNewTask (content){
     await t.typeText(this.contentField1, content,{paste:true})
     await t.click(this.submitTaskButton)
     await t.wait(5000)
+    await t.click(this.cancelButton)
+    await t.wait(5000)
    
 } 
 
-async createNewTomorrowTask (content){
-    await t
-        .click(this.addTaskButton)
-        .typeText(this.contentField1, content,{paste:true})
-        //await t.click(this.calendarIcon)
-        //await t.wait(5000)
-        //await t.click(this.tomorrowButton)
-       // await t.wait(5000)
-        await t.click(this.submitTaskButton)
-        await t.wait(5000)
-        
-}
 
 
-async tenTasks(variable1){
-    for (let index = 1; index < 11; index++) {
-       // await t.this.createNewTask(TASK.TODAY_TASK+index)
-        this.createNewTask(variable1)
-        
-    }
+async nTasks(content, size){
+    for (let index = 0; index < size; index++) {
+        this.createNewTask2(content+index)
+        await t.wait(2000)
+    } 
 } 
+async countTasks(){
+    return this.doneCheckbox.count 
+} 
+
 
 async DeleteTasks (){
 
