@@ -11,7 +11,8 @@
     "smoke-test": "testcafe chrome ./pom/tests/ --test-meta type=smoke --reporter allure",
     "logintestsheadless2browsers": "testcafe chrome:headless,firefox:headless ./pom/tests --fixture-meta feature=login",
     "smoke-testjenkins": "testcafe chrome:headless ./pom/tests --test-meta type=smoke -r xunit:res.xml",
-    "alltestsjenkins": "testcafe chrome:headless ./pom/tests -r xunit:res.xml"
+    "alltestsjenkins": "testcafe chrome:headless ./pom/tests -r xunit:res.xml",
+    "apitests": "newman run './apitest/todoistapi.json' -e './apitest/todoist_env.json'"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "eslint": "^7.31.0",
-    "eslint-plugin-testcafe": "^0.2.1"
+    "eslint-plugin-testcafe": "^0.2.1",
+    "newman": "^5.2.4"
   }
 }
