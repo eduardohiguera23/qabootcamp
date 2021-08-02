@@ -33,8 +33,8 @@
 									"    pm.response.to.have.jsonSchema(expectedSchema);",
 									"});",
 									"pm.test(\"Content-Type should exist and should contain application/json\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\");",
-									"    pm.response.to.be.header(\"Content-Type\",\"application/json\");",
+									"    ",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
 									"});"
 								],
 								"type": "text/javascript"
@@ -134,12 +134,13 @@
 									"});",
 									"",
 									"pm.test(\"Content-Type should exist and should contain application/json\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\");",
-									"    pm.response.to.be.header(\"Content-Type\",\"application/json\");",
+									"   // pm.response.to.have.header(\"Content-Type\");",
+									"   // pm.response.to.be.header(\"Content-Type\",\"application/json\");",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
 									"});",
 									"",
-									"pm.environment.set(\"projectName\",\"\");",
-									"pm.environment.set(\"projectColor\",\"\");"
+									"pm.environment.unset(\"projectName\");",
+									"pm.environment.unset(\"projectColor\");"
 								],
 								"type": "text/javascript"
 							}
@@ -299,8 +300,7 @@
 									"});",
 									"",
 									"pm.test(\"Content-Type should exist and should contain application/json\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\");",
-									"    pm.response.to.be.header(\"Content-Type\",\"application/json\");",
+									"   pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
 									"});"
 								],
 								"type": "text/javascript"
@@ -601,8 +601,7 @@
 									"});",
 									"",
 									"pm.test(\"Content-Type should exist and should contain application/json\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\");",
-									"    pm.response.to.be.header(\"Content-Type\",\"application/json\");",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
 									"});"
 								],
 								"type": "text/javascript"
@@ -696,12 +695,11 @@
 									"});",
 									"",
 									"pm.test(\"Content-Type should exist and should contain application/json\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\");",
-									"    pm.response.to.be.header(\"Content-Type\",\"application/json\");",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
 									"});",
 									"",
-									"pm.environment.set(\"taskContent\",\"\");",
-									"pm.environment.set(\"taskDescription\",\"\");"
+									"pm.environment.unset(\"taskContent\");",
+									"pm.environment.unset(\"taskDescription\");"
 								],
 								"type": "text/javascript"
 							}
@@ -842,8 +840,7 @@
 									"});",
 									"",
 									"pm.test(\"Content-Type should exist and should contain application/json\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\");",
-									"    pm.response.to.be.header(\"Content-Type\",\"application/json\");",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
 									"});"
 								],
 								"type": "text/javascript"
