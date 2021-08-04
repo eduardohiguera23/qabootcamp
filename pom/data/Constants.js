@@ -29,7 +29,7 @@ export const TASK ={
     TODAY_TASK:'test',
     TOMORROW_TASK:'tomorrow add new task',
     TOMORROW_TASK_VALIDATION:'add new task',
-    SIZE:10
+    SIZE:'10'
 }
 export const NEWPROJECT ={
     NAME:'new project test',

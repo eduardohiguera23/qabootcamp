@@ -12,7 +12,11 @@
     "logintestsheadless2browsers": "testcafe chrome:headless,firefox:headless ./pom/tests --fixture-meta feature=login",
     "smoke-testjenkins": "testcafe chrome:headless ./pom/tests --test-meta type=smoke -r xunit:res.xml",
     "alltestsjenkins": "testcafe chrome:headless ./pom/tests -r xunit:res.xml",
-    "apitests": "newman run './apitest/todoistapi.json' -e './apitest/todoist_env.json'"
+    "apitests": "newman run './apitest/todoistapi.json' -e './apitest/todoist_env.json'",
+    "lint": "eslint ./pom",
+    "lintinit":"eslint --init"
+
+
   },
   "repository": {
     "type": "git",

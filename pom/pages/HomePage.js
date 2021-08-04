@@ -1,5 +1,4 @@
 import { Selector, t } from "testcafe"
-import {TASK} from '../data/Constants'
 import CommonPage from "./CommonPage"
 
 class HomePage{
@@ -39,7 +38,7 @@ async createNewTask (content){
     await t.typeText(this.contentField1, content,{paste:true})
     await t.click(this.submitTaskButton)
     await t.wait(5000)
-    await t.click(this.cancelButton)
+    //await t.click(this.cancelButton)
     await t.wait(5000)
    
 } 
@@ -47,8 +46,12 @@ async createNewTask (content){
 
 
 async nTasks(content, size){
+    await t.wait(2000)
+    await t.click(this.addTaskButton)
     for (let index = 0; index < size; index++) {
-        this.createNewTask2(content+index)
+        //this.createNewTask2(content+index)
+        await t.typeText(this.contentField1, content+index,{paste:true})
+        await t.click(this.submitTaskButton)
         await t.wait(2000)
     } 
 } 
