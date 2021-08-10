@@ -19,7 +19,7 @@ fixture('task features')
 test.meta('type', 'smoke')('as a user, i should be able to add a new task with today as the due date', async t => {
     
     await TodayPage.createNewTask(TASK.TODAY_TASK)
-    await t.expect(TodayPage.taskContentField2.innerText).contains(TASK.TODAY_TASK)
+    await t.expect(TodayPage.taskContentField.innerText).contains(TASK.TODAY_TASK)
  
 })
 
@@ -27,7 +27,7 @@ test.meta('type', 'smoke')('as a user, i should be able to add a new task with t
    
     await TodayPage.createNewTask(TASK.TOMORROW_TASK)
     await CommonPage.navigateToTomorrow()
-    await t.expect(TodayPage.taskContentField2.innerText).contains(TASK.TOMORROW_TASK_VALIDATION)
+    await t.expect(TodayPage.taskContentField.innerText).contains(TASK.TOMORROW_TASK_VALIDATION)
 })
 
 
