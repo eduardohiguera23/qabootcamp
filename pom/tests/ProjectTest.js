@@ -1,5 +1,4 @@
 import {USER} from '../data/Roles'
-import homePage from '../pages/HomePage'
 import {NEWPROJECT,URLS} from '../data/Constants'
 import CommonPage from '../pages/CommonPage'
 
@@ -13,7 +12,7 @@ fixture ('proyect features')
  
  test.meta('type','smoke')('as a user, i should be able to create a new project', async t => {
     
-    await homePage.CreateNewProject(NEWPROJECT.NAME,NEWPROJECT.COLOR)
-    await t.expect(CommonPage.ProjectName.withText(NEWPROJECT.NAME).exists).ok()
+    await CommonPage.createNewProject(NEWPROJECT.NAME,NEWPROJECT.COLOR)
+    await t.expect(CommonPage.projectName.withText(NEWPROJECT.NAME).exists).ok()
     
 })

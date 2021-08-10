@@ -5,11 +5,11 @@ class LoginPage{
         this.emailField = Selector('#email')
         this.passwordField = Selector('#password')
         this.logInButton = Selector('button').withText("Log in")
-        this.ErrorMessage = Selector('.error_msg')
+        this.errorMessage = Selector('.error_msg')
        
     }
 
-async submittLoginForm (email, password){
+async submitLoginForm(email, password){
 
         if (email != null) {
             await t.typeText(this.emailField, email)

@@ -1,7 +1,8 @@
 import {USER} from '../data/Roles'
 import {TASK,URLS} from '../data/Constants'
-import homePage from '../pages/HomePage'
 import CommonPage from '../pages/CommonPage'
+import InboxPage from '../pages/InboxPage'
+import TodayPage from '../pages/TodayPage'
 
 fixture('task features')
     .page `${URLS.LOGIN_URL}`
@@ -10,31 +11,31 @@ fixture('task features')
         await t.useRole(USER)
     })
     .afterEach( async () => {
-        await homePage.DeleteTasks()
+        await CommonPage.navigateToInbox()
+        await InboxPage.deleteTasks()
     })
    
 
 test.meta('type', 'smoke')('as a user, i should be able to add a new task with today as the due date', async t => {
     
-    await homePage.createNewTask(TASK.TODAY_TASK)
-    await t.expect(homePage.taskContentField2.innerText).contains(TASK.TODAY_TASK)
+    await TodayPage.createNewTask(TASK.TODAY_TASK)
+    await t.expect(TodayPage.taskContentField2.innerText).contains(TASK.TODAY_TASK)
  
 })
 
 test.meta('type', 'smoke')('as a user, i should be able to add a new task with tomorrow as the due date', async t => {
    
-    await homePage.createNewTask(TASK.TOMORROW_TASK)
-    await CommonPage.NavigateToTomorrow()
-    await t.expect(homePage.taskContentField2.innerText).contains(TASK.TOMORROW_TASK_VALIDATION)
+    await TodayPage.createNewTask(TASK.TOMORROW_TASK)
+    await CommonPage.navigateToTomorrow()
+    await t.expect(TodayPage.taskContentField2.innerText).contains(TASK.TOMORROW_TASK_VALIDATION)
 })
 
 
 
-test('as a user, i should be able to create 10 task with today as the due date', async t => {
+test('as a user, i should be able to create 10 tasks with today as the due date', async t => {
     
-    await homePage.nTasks(TASK.TODAY_TASK,TASK.SIZE)
-    await t.expect(homePage.countTasks()).eql(TASK.SIZE)
-    
+    await TodayPage.nTasks(TASK.TODAY_TASK,TASK.SIZE)
+    await t.expect(await TodayPage.validateTasks(TASK.TODAY_TASK,TASK.SIZE)).ok()
 })
 
 
