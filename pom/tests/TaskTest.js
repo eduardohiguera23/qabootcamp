@@ -9,7 +9,7 @@ fixture('task features')
     .beforeEach( async t => {
         await t.useRole(USER)
     })
-    .afterEach( async t => {
+    .afterEach( async () => {
         await homePage.DeleteTasks()
     })
    
@@ -33,7 +33,7 @@ test.meta('type', 'smoke')('as a user, i should be able to add a new task with t
 test('as a user, i should be able to create 10 task with today as the due date', async t => {
     
     await homePage.nTasks(TASK.TODAY_TASK,TASK.SIZE)
-    await t.expect(homePage.countTasks()).eql(TASk.SIZE)
+    await t.expect(homePage.countTasks()).eql(TASK.SIZE)
     
 })
 
