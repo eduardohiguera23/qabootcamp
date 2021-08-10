@@ -32,8 +32,8 @@
 									"    }",
 									"    pm.response.to.have.jsonSchema(expectedSchema);",
 									"});",
+									"",
 									"pm.test(\"Content-Type should exist and should contain application/json\", function () {",
-									"    ",
 									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
 									"});"
 								],
@@ -134,8 +134,6 @@
 									"});",
 									"",
 									"pm.test(\"Content-Type should exist and should contain application/json\", function () {",
-									"   // pm.response.to.have.header(\"Content-Type\");",
-									"   // pm.response.to.be.header(\"Content-Type\",\"application/json\");",
 									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
 									"});",
 									"",
@@ -211,8 +209,8 @@
 									"    pm.response.to.have.body(\"Empty name\\n\");",
 									"});",
 									"",
-									"pm.environment.set(\"projectName\",\"\");",
-									"pm.environment.set(\"projectColor\",\"\");",
+									"pm.environment.unset(\"projectName\");",
+									"pm.environment.unset(\"projectColor\");",
 									""
 								],
 								"type": "text/javascript"
@@ -752,8 +750,6 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"//var jsonData = pm.response.json();",
-									"",
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
 									"});",
@@ -763,8 +759,8 @@
 									"});",
 									"",
 									"",
-									"//pm.environment.set(\"taskContent\",\"\");",
-									"pm.environment.set(\"taskDescription\",\"\");"
+									"pm.environment.unset(\"taskContent\");",
+									"pm.environment.unset(\"taskDescription\");"
 								],
 								"type": "text/javascript"
 							}
@@ -1313,7 +1309,7 @@
 			"script": {
 				"type": "text/javascript",
 				"exec": [
-					"pm.test(\"Response time is less than 500ms\", function () {",
+					"pm.test(\"Response time is less than 700ms\", function () {",
 					"    pm.expect(pm.response.responseTime).to.be.below(700);",
 					"});"
 				]
