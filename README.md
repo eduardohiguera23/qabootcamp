@@ -1,6 +1,6 @@
 # QA Bootcamp
-proyect for todoist
-The purpose of this project is to apply best practices and techniques covered during the front-end sessions. 
+
+The purpose of this project is to apply best practices and techniques covered during the front-end sessions using Todoist web application
 
 ## Tech Stack
 * Javascript
@@ -47,5 +47,6 @@ PASSWORD=12345678
 * `npm run lintinit`: initializes eslint
 
 
-to generate a report on allure, execute `allure generate allure/allure-results --clean -o allure/allure-report && allure open allure/allure-report` after each script
+Generate a report on allure: 
+Execute `allure generate allure/allure-results --clean -o allure/allure-report && allure open allure/allure-report` after each script
 
