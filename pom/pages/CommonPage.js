@@ -18,7 +18,7 @@ class CommonPage{
         this.submitNewProjectButton = Selector('.ist_button.ist_button_red')
     }
 
-    async navigateToTomorrow (){
+    async navigateToTomorrow(){
        
          await t.click(this.upcommingLink)
          await t.wait(2000)
@@ -26,12 +26,12 @@ class CommonPage{
          await t.wait(2000)
     } 
 
-    async navigateToInbox (){
+    async navigateToInbox(){
         await t.click(this.inboxLink)
             
     } 
 
-    async navigateToNewProject (){
+    async navigateToNewProject(){
         await t.wait(2000)
             .hover(this.newProjectButton)
         await t.wait(5000)
@@ -39,7 +39,7 @@ class CommonPage{
             
     } 
 
-    async createNewProject (content,color){
+    async createNewProject(content,color){
 
         await this.navigateToNewProject()
         await t.typeText(this.newProjectNameField, content,{paste:true})
