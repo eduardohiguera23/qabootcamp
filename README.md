@@ -15,6 +15,20 @@ The purpose of this project is to apply best practices and techniques covered du
 * Node.js (latest version)
 * Chrome & Firefox
 
+## Project Structure
+```
+├── ...
+├── pom                     # Main Page Object Model folder.
+│   ├── data                # Data providers, Roles.
+│   ├── pages               # All the pages, including the Common page.
+│   ├── tests               # Test files are located here.
+│   └── ...                 
+└── package.json
+└── .env
+└── config files
+└── ...
+```
+
 ## Instalation
 
 1. Clone the project : `git clone https://github.com/eduardohiguera23/qabootcamp.git`
@@ -33,7 +47,7 @@ PASSWORD=12345678
 * testcafe
 * testcafe-reporter-allure
 
-## scripts
+## Scripts
 
 * `npm run login-test`: runs all the tests from the login fixture on chrome
 * `npm run task-test`: runs all the tests from the task fixture on chrome headless mode
