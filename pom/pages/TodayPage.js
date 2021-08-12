@@ -1,4 +1,5 @@
 import { Selector, t } from "testcafe"
+import {WAITS} from '../data/Constants'
 
 class TodayPage{
     constructor(){
@@ -8,31 +9,28 @@ class TodayPage{
         this.taskContentField = Selector('.task_content')
     }
 
-    async createNewTask(content){
-        await t.wait(2000)
+    async createNewTask(taskContent){
         if (await this.addTaskButton.exists) {
             await t.click(this.addTaskButton)
         }
-        await t.typeText(this.contentField, content,{paste:true})
+        await t.typeText(this.contentField, taskContent,{paste:true})
         await t.click(this.submitTaskButton)
-        await t.wait(5000)
+        await t.wait(WAITS.ONE)
        
     }
 
-    async nTasks(content,size){
-        await t.wait(2000)
+    async nTasks(taskContent,numberOfTasks){
         await t.click(this.addTaskButton)
-        for (let index = 0; index < size; index++) {
-            await t.typeText(this.contentField, content+index,{paste:true})
+        for (let index = 0; index < numberOfTasks; index++) {
+            await t.typeText(this.contentField, taskContent+index,{paste:true})
             await t.click(this.submitTaskButton)
-            await t.wait(2000)
+            await t.wait(WAITS.ONE)
         } 
     }
     
-    async validateTasks(content,size){
-        for (let i = 0; i < size; i++) {
-            const targetTask = this.taskContentField.nth(i)
-           await t.expect(targetTask.innerText).contains(content+i)
+    async validateTasks(taskContent,numberOfTasks){
+        for (let i = 0; i < numberOfTasks; i++) {
+           await t.expect(this.taskContentField.nth(i).innerText).contains(taskContent+i)
            //console.log(await targetTask.innerText)
         } 
         return true

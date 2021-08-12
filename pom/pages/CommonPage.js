@@ -1,4 +1,5 @@
 import { Selector, t } from "testcafe"
+import {WAITS} from '../data/Constants'
 
 class CommonPage{
     constructor(){
@@ -21,9 +22,8 @@ class CommonPage{
     async navigateToTomorrow(){
        
          await t.click(this.upcommingLink)
-         await t.wait(2000)
          await t.click(this.tomorrowLink)
-         await t.wait(2000)
+         await t.wait(WAITS.ONE)
     } 
 
     async navigateToInbox(){
@@ -32,24 +32,21 @@ class CommonPage{
     } 
 
     async navigateToNewProject(){
-        await t.wait(2000)
+        await t.wait(WAITS.ONE)
             .hover(this.newProjectButton)
-        await t.wait(5000)
          await t.click(this.newProjectButton)
             
     } 
 
-    async createNewProject(content,color){
+    async createNewProject(projectName,color){
 
         await this.navigateToNewProject()
-        await t.typeText(this.newProjectNameField, content,{paste:true})
+        await t.typeText(this.newProjectNameField, projectName,{paste:true})
                 .click(this.addToFavoritesSwitch)
                 .click(this.colorDropdown)
-        await t.wait(2000)
         await t.click(this.selectColor.withText(color))        
-        await t.wait(5000)
         await t.click(this.submitNewProjectButton)
-        await t.wait(5000)
+        await t.wait(WAITS.ONE)
         
     } 
 }

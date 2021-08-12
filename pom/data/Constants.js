@@ -35,3 +35,6 @@ export const NEWPROJECT ={
     NAME:'new project test',
     COLOR:'Green'
 }
+export const WAITS ={
+    ONE:1000
+}

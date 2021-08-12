@@ -1,4 +1,5 @@
 import { Selector, t } from "testcafe"
+import {WAITS} from '../data/Constants'
 class InboxPage{
     constructor(){
         //task item
@@ -11,13 +12,13 @@ class InboxPage{
          this.deleteConfirmButton = Selector('.ist_button_red').withText('Delete')
     }
     async deleteTasks(){
-
+        
         while (await this.doneCheckbox.exists) {
          await t.hover(this.taskListItem)
          await t.click(this.moreActionsButton)
          await t.click(this.deleteTaskButton)
          await t.click(this.deleteConfirmButton)
-         await t.wait(2000)
+         await t.wait(WAITS.ONE)
         }
         
     }
