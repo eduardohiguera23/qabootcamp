@@ -67,3 +67,4 @@ Generate a report on allure:
 Execute `allure generate allure/allure-results --clean -o allure/allure-report && allure open allure/allure-report` after each script
 
 test
+test
